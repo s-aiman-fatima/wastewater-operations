@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Water Operations - Unit Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f4f4f4;
+            text-align: center;
+        }
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .container {
+            flex: 1;
+            min-width: 280px;
+            max-width: 600px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .wrapper {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container" id="unit-conversion">
+            <h2>Waste Water Operations - Unit Converter</h2>
+            <label for="conversionType">Select Conversion Type:</label>
+            <select id="conversionType">
+                <option value="mgd-to-gph">MGD to GPH</option>
+                <option value="mgd-to-gpm">MGD to GPM</option>
+                <option value="mgd-to-gps">MGD to GPS</option>
+                <option value="mgd-to-cfs">MGD to CFS</option>
+                <option value="gpm-to-gps">GPM to GPS</option>
+                <option value="gpm-to-mgd">GPM to MGD</option>
+                <option value="psi-to-bar">PSI to Bar</option>
+                <option value="fps-to-mps">FPS to MPS</option>
+                <option value="gph-to-gpm">GPH to GPM</option>
+                <option value="gph-to-mgd">GPH to MGD</option>
+                <option value="cfs-to-mgd">CFS to MGD</option>
+                <option value="cfs-to-gpm">CFS to GPM</option>
+                <option value="lph-to-lpm">LPH to LPM</option>
+                <option value="lpm-to-lps">LPM to LPS</option>
+                <option value="psi-to-kpa">PSI to kPa</option>
+                <option value="kpa-to-mpa">kPa to MPa</option>
+                <option value="hp-to-kw">HP to kW</option>
+                <option value="kw-to-hp">kW to HP</option>
+                <option value="ppm-to-mgL">PPM to mg/L</option>
+                <option value="lbs-to-kg">LBS to KG</option>
+                <option value="kg-to-lbs">KG to LBS</option>
+                <option value="mgd-to-lps">MGD to LPS</option>
+                <option value="lps-to-mgd">LPS to MGD</option>
+                <option value="ft-to-m">Feet to Meters</option>
+                <option value="m-to-ft">Meters to Feet</option>
+                <option value="in-to-cm">Inches to Centimeters</option>
+                <option value="cm-to-in">Centimeters to Inches</option>
+                <option value="bar-to-psi">Bar to PSI</option>
+            </select>
+            <input type="number" id="inputValue" placeholder="Enter value">
+            <button onclick="convert()">Convert</button>
+            <h3 id="result"></h3>
+        </div>
+        
+        <div class="container" id="lbs-calculation">
+            <h2>Lbs/Day Calculation</h2>
+            <label for="concentration">Concentration (mg/L):</label>
+            <input type="number" id="concentration" placeholder="Enter concentration">
+            
+            <label for="flow">Flow (MGD):</label>
+            <input type="number" id="flow" placeholder="Enter flow">
+            
+            <button onclick="calculateLbsPerDay()">Calculate</button>
+            
+            <p>Result: <span id="lbsResult"></span> lbs/day</p>
+        </div>
+    </div>
+
+    <script>
+        function convert() {
+            let type = document.getElementById("conversionType").value;
+            let input = parseFloat(document.getElementById("inputValue").value);
+            let result = 0;
+            
+            switch (type) {
+                case "mgd-to-gph": result = input * 1000000; break;
+                case "mgd-to-gpm": result = input * 6944.44; break;
+                case "mgd-to-gps": result = input * 115.74; break;
+                case "mgd-to-cfs": result = input * 1.547; break;
+                case "gpm-to-gps": result = input / 60; break;
+                case "gpm-to-mgd": result = input * 0.00144; break;
+                case "psi-to-bar": result = input * 0.06895; break;
+                case "fps-to-mps": result = input * 0.3048; break;
+                case "gph-to-gpm": result = input / 60; break;
+                case "gph-to-mgd": result = input * 0.000001; break;
+                case "cfs-to-mgd": result = input * 0.6463; break;
+                case "cfs-to-gpm": result = input * 448.831; break;
+                case "lph-to-lpm": result = input / 60; break;
+                case "lpm-to-lps": result = input / 60; break;
+                case "psi-to-kpa": result = input * 6.895; break;
+                case "kpa-to-mpa": result = input / 1000; break;
+                case "hp-to-kw": result = input * 0.7457; break;
+                case "kw-to-hp": result = input / 0.7457; break;
+                case "ppm-to-mgL": result = input * 1; break;
+                case "lbs-to-kg": result = input * 0.453592; break;
+                case "kg-to-lbs": result = input * 2.20462; break;
+                case "mgd-to-lps": result = input * 43.812; break;
+                case "lps-to-mgd": result = input * 0.02283; break;
+                case "ft-to-m": result = input * 0.3048; break;
+                case "m-to-ft": result = input * 3.28084; break;
+                case "in-to-cm": result = input * 2.54; break;
+                case "cm-to-in": result = input * 0.393701; break;
+                case "bar-to-psi": result = input * 14.5038; break;
+                default: result = "Invalid Conversion";
+            }
+            document.getElementById("result").innerText = "Result: " + result;
+        }
+        function calculateLbsPerDay() {
+            let concentration = parseFloat(document.getElementById("concentration").value);
+            let flow = parseFloat(document.getElementById("flow").value);
+            
+            if (isNaN(concentration) || isNaN(flow)) {
+                document.getElementById("lbsResult").textContent = "Please enter valid numbers!";
+                return;
+            }
+
+            let lbsPerDay = concentration * flow * 8.34;
+            document.getElementById("lbsResult").textContent = lbsPerDay.toFixed(2);
+        }
+    </script>
+</body>
+</html>
