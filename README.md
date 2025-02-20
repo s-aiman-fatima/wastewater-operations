@@ -29,7 +29,7 @@ This project provides a **Wastewater Operations Unit Converter** that allows use
 
 This tool supports the following conversions:
 
-Flow Conversions:
+#Flow Conversions:
 
 MGD to GPH, GPM, GPS, CFS, LPS
 
@@ -39,7 +39,7 @@ CFS to MGD, GPM
 
 LPH to LPM, LPM to LPS
 
-Pressure Conversions:
+#Pressure Conversions:
 
 PSI to Bar, kPa
 
@@ -47,19 +47,19 @@ Bar to PSI
 
 kPa to MPa
 
-Power Conversions:
+#Power Conversions:
 
 HP to kW
 
 kW to HP
 
-Mass & Concentration Conversions:
+#Mass & Concentration Conversions:
 
 PPM to mg/L
 
 LBS to KG, KG to LBS
 
-Length Conversions:
+#Length Conversions:
 
 Feet to Meters, Meters to Feet
 
