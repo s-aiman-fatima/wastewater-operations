@@ -24,23 +24,46 @@ This project provides a **Wastewater Operations Unit Converter** that allows use
 2. Enter the flow in MGD.
 3. Click "Calculate" to get the pollutant load in lbs/day.
 
-## Conversion Formulas
-Some key conversion formulas used in the project:
+## Conversion Types
 
-- **MGD to GPH**:  
-  \[
-  \text{GPH} = \text{MGD} \times 1,000,000
-  \]
 
-- **MGD to GPM**:  
-  \[
-  \text{GPM} = \text{MGD} \times 6944.44
-  \]
+This tool supports the following conversions:
 
-- **Lbs/Day Calculation**:  
-  \[
-  \text{Lbs/Day} = \text{Concentration (mg/L)} \times \text{Flow (MGD)} \times 8.34
-  \]
+Flow Conversions:
+
+MGD to GPH, GPM, GPS, CFS, LPS
+
+GPM to GPS, MGD
+
+CFS to MGD, GPM
+
+LPH to LPM, LPM to LPS
+
+Pressure Conversions:
+
+PSI to Bar, kPa
+
+Bar to PSI
+
+kPa to MPa
+
+Power Conversions:
+
+HP to kW
+
+kW to HP
+
+Mass & Concentration Conversions:
+
+PPM to mg/L
+
+LBS to KG, KG to LBS
+
+Length Conversions:
+
+Feet to Meters, Meters to Feet
+
+Inches to Centimeters, Centimeters to Inches
 
 ## Installation
 No installation is required. Simply open the `index.html` file in a web browser.
